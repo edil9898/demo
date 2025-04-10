@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Estudio - Diplomado Internacional</title>
+ 
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-[#AACB0C] shadow-md py-4">
+        <div class="container mx-auto flex flex-wrap justify-between items-center px-4">
+            <img src="./img/LOGO_HORIZONTAL.png" alt="Logo 1" class="h-16 md:h-20">
+            <nav class="w-full md:w-auto mt-4 md:mt-0">
+                <ul class="flex flex-col md:flex-row md:space-x-6 text-center">
+                    <li><a href="./index.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Inicio</a></li>
+                        <li><a href="./quien_somos.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Objetivos/Impactos</a></li>
+                        <li><a href="./plan_estudio.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Plan de estudio</a></li>
+                        <li><a href="./pagina3.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Inscripcion</a></li>
+                </ul>
+            </nav>
+            <img src="./img/PUCV_Escudo2016.svg.png" alt="Logo 2" class="h-24 md:h-32 mt-4 md:mt-0">
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6 fade-in">Plan de Estudio del Diplomado Internacional</h1>
+        <div id="plan-estudio" class="space-y-8"></div>
+    </main>
+
+    <footer class="bg-black text-white py-6">
+        <div class="container mx-auto flex justify-end items-center px-4">
+            <div class="text-right">
+                <p class="text-lg font-semibold">11 Norte 967, Viña del Mar</p>
+                <p class="text-sm">
+                    <span class="font-bold">Teléfonos:</span> 
+                    322881777 - 322638887 - 322694140
+                </p>
+                <p class="text-sm text-blue-400">PAICABI@PAICABI.CL</p>
+                <p class="text-xs text-gray-500 mt-2">
+                    2025 - ONG DE DESARROLLO, CENTRO DE PROMOCIÓN Y APOYO A LA INFANCIA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const planEstudio = [
+    { semana: 1, unidad: "Presentación del Diplomado Internacional", temas: ["Análisis integral de la violencia en América Latina", "El trabajo de ONG Paicabí en el abordaje de la violencia hacia NNAJ"], modulo: ["1. Módulo 1: Introducción al Diplomado Internacional"] },
+    { semana: 2, unidad: "El derecho a ser amado", temas: ["Aproximación a la intervención en PAS"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
+    { semana: 3, unidad: "Evaluación de las CSP-PAS", temas: ["Modelo Paicabí de Responsabilización Compartida (RC3D)"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
+    { semana: 4, unidad: "Evaluación de las CSP-PAS", temas: ["Responsabilización a nivel individual, familiar y contextual", "Resignificación de experiencias de vulneración antes y después de la PAS"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
+    { semana: 5, unidad: "Evaluación de las CSP-PAS", temas: ["Factores vulnerantes y resilientes de la PAS", "Evaluación y desarrollo de competencias parentales"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
+    { semana: 6, unidad: "Elaboración del diagnóstico diferencial de las CSP-PAS", temas: ["Desarrollo de hipótesis de trabajo y programa de intervención"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
+    { semana: 7, unidad: "Elaboración del diagnóstico diferencial de las CSP-PAS", temas: ["La entrevista con NNA"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
+    { semana: 8, unidad: "Elaboración del diagnóstico diferencial de las CSP-PAS", temas: ["La entrevista con NNA con necesidades especiales"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
+    { semana: 9, unidad: "Estrategias para la Intervención Psicosocial", temas: ["Reconocimiento a nivel individual, familiar y contextual"], modulo: ["3. Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"] },
+    { semana: 10, unidad: "Estrategias para la Intervención Psicosocial", temas: ["Responsabilización y resignificación de experiencias de vulneración"], modulo: ["3. Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"] },
+    { semana: 11, unidad: "Modelo de Responsabilización Compartida en Tres Dimensiones (RC3D)", temas: ["Configuraciones sistémicas para supervisión de casos"], modulo: ["4. Módulo 4: Modelo de responsabilización compartida en tres dimensiones (RC3D)"] },
+    { semana: 12, unidad: "Modelo de Responsabilización Compartida en Tres Dimensiones (RC3D)", temas: ["Escultura familiar para el análisis de casos"], modulo: ["4. Módulo 4: Modelo de responsabilización compartida en tres dimensiones (RC3D)"] },
+    { semana: 13, unidad: "Trabajo colaborativo como herramienta de cuidado", temas: ["Estrategias de autocuidado para equipos que trabajan con violencia"], modulo: ["4. Módulo 4: Modelo de responsabilización compartida en tres dimensiones (RC3D)"] },
+    { semana: 14, unidad: "Modelo de atención Fundación Opción", temas: ["Enfoque del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
+    { semana: 15, unidad: "Modelo de atención Fundación Opción", temas: ["Implementación del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
+    { semana: 16, unidad: "Modelo de atención Lucy Faithfull Foundation", temas: ["Enfoque y estrategias del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
+    { semana: 17, unidad: "Modelo de atención Lucy Faithfull Foundation", temas: ["Aplicaciones prácticas del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
+    { semana: 18, unidad: "Incidencia en Políticas Públicas", temas: ["Políticas públicas como instrumento del Estado"], modulo: ["6. Módulo 6: Estrategias para la incidencia en Políticas Públicas"] },
+    { semana: 19, unidad: "Incidencia en Políticas Públicas", temas: ["Evaluación de políticas públicas y su impacto"], modulo: ["6. Módulo 6: Estrategias para la incidencia en Políticas Públicas"] },
+    { semana: 20, unidad: "Clausura y cierre del diplomado", temas: ["Encuentro internacional presencial (autofinanciable)"], modulo: ["7. Clausura y cierre de la actividad Encuentro internacional presencial en un país de América Latina."] }
+];
+        const container = document.getElementById("plan-estudio");
+        const modulosMap = {};
+        planEstudio.forEach(semana => {
+            semana.modulo.forEach(moduloNombre => {
+                if (!modulosMap[moduloNombre]) {
+                    modulosMap[moduloNombre] = [];
+                }
+                modulosMap[moduloNombre].push(semana);
+            });
+        });
+
+        const modulosOrdenados = Object.keys(modulosMap).sort((a, b) => {
+            const numA = parseInt(a.match(/\d+/)?.[0] || 0);
+            const numB = parseInt(b.match(/\d+/)?.[0] || 0);
+            return numA - numB;
+        });
+
+        modulosOrdenados.forEach(moduloNombre => {
+            const tituloModulo = document.createElement('h3');
+            tituloModulo.className = 'text-2xl font-bold text-gray-800 mb-4 fade-in';
+            tituloModulo.textContent = moduloNombre;
+            container.appendChild(tituloModulo);
+
+            const gridSemanas = document.createElement('div');
+            gridSemanas.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8';
+            
+            modulosMap[moduloNombre].forEach(({ semana, unidad, temas }) => {
+                const card = document.createElement("div");
+                card.className = "bg-white p-4 rounded-lg shadow-md fade-in";
+                card.innerHTML = `
+                    <h2 class="text-xl font-bold text-gray-800">Semana ${semana}</h2>
+                    <p class="text-gray-700"><strong>Unidad:</strong> ${unidad}</p>
+                    <ul class="list-disc list-inside text-gray-600 mt-2">
+                        ${temas.map(tema => `<li>${tema}</li>`).join("")}
+                    </ul>
+                `;
+                gridSemanas.appendChild(card);
+            });
+            
+            container.appendChild(gridSemanas);
+        });
+    </script>
+</body>
+</html>

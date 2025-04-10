@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción</title>
+   
+    <link rel="icon" type="image/png" href="./img/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-[#AACB0C] shadow-md py-4">
+        <div class="container mx-auto flex flex-wrap justify-between items-center px-4">
+            <img src="./img/LOGO_HORIZONTAL.png" alt="Logo 1" class="h-16 md:h-20">
+            <nav class="w-full md:w-auto mt-4 md:mt-0">
+                <ul class="flex flex-col md:flex-row md:space-x-6 text-center">
+                    <li><a href="./index.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Inicio</a></li>
+                        <li><a href="./quien_somos.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Objetivos/Impactos</a></li>
+                        <li><a href="./plan_estudio.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Plan de estudio</a></li>
+                        <li><a href="./pagina3.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Inscripcion</a></li>
+                </ul>
+            </nav>
+            <img src="./img/PUCV_Escudo2016.svg.png" alt="Logo 2" class="h-24 md:h-32 mt-4 md:mt-0">
+        </div>
+    </header>
+
+    <main class="container mx-auto my-10 p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="text-2xl font-bold text-center mb-6">Formulario de Inscripción</h1>
+
+        <form id="inscripcionForm">
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">Datos del Curso</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-3 border rounded-lg w-full">
+                        <span class="font-semibold">DIPLOMADO INTERNACIONAL EN EVALUACIÓN, PREVENCIÓN E INTERVENCIÓN EN CONTEXTOS DE PRÁCTICAS ABUSIVAS SEXUALES DE NNA</span>
+                        <span id="curso-titulo"></span> 
+                    </div>
+                    <div class="p-3 border rounded-lg w-full">
+                        <span class="font-semibold">Fecha de Inicio:</span>
+                        <span id="curso-fecha-inicio">---------</span>
+                    </div>
+                    <div class="p-3 border rounded-lg w-full">
+                        <span class="font-semibold">Duración:</span>
+                        <span id="curso-duracion">20 semanas</span>
+                    </div>
+                    <div class="p-3 border rounded-lg w-full">
+                        <span class="font-semibold">Costo:</span>
+                        <span id="curso-costo">$1,200.00</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">Información Personal</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Nombre completo" class="p-3 border rounded-lg w-full">
+                    <input type="date" placeholder="Fecha de nacimiento" class="p-3 border rounded-lg w-full">
+                    <input type="email" placeholder="Correo electrónico" class="p-3 border rounded-lg w-full">
+                    <input type="tel" placeholder="Número de teléfono" class="p-3 border rounded-lg w-full">
+                    <input type="text" placeholder="Dirección" class="p-3 border rounded-lg w-full">
+                    <input type="text" placeholder="Nivel de estudios" class="p-3 border rounded-lg w-full">
+                    <input type="text" placeholder="Ocupación" class="p-3 border rounded-lg w-full">
+                </div>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">Información Adicional (Opcional)</h2>
+                <textarea placeholder="¿Cómo se enteró de este curso?" class="p-3 border rounded-lg w-full"></textarea>
+                <textarea placeholder="¿Cuál es su motivación para tomar este curso?" class="p-3 border rounded-lg w-full mt-3"></textarea>
+                <textarea placeholder="¿Tiene alguna experiencia previa en este tema?" class="p-3 border rounded-lg w-full mt-3"></textarea>
+                <textarea placeholder="¿Necesita alguna adaptación especial?" class="p-3 border rounded-lg w-full mt-3"></textarea>
+            </section>
+
+            <!-- Sección de pago -->
+<section class="mb-6">
+    <h2 class="text-xl font-semibold mb-2">Método de Pago</h2>
+    <div class="flex gap-4">
+        <button type="button" id="pagoTarjeta" class="w-1/2 bg-gray-600 text-white p-3 rounded-lg hover:bg-gray-700 transition">Pagar con Tarjeta</button>
+        <button type="button" id="pagoPayPal" class="w-1/2 bg-yellow-500 text-white p-3 rounded-lg hover:bg-yellow-600 transition">Pagar con PayPal</button>
+    </div>
+</section>
+
+<!-- Formulario de tarjeta (oculto al inicio) -->
+<div id="formTarjeta" class="hidden p-4 bg-gray-50 border rounded-lg my-4">
+    <h2 class="text-lg font-semibold mb-2">Ingrese los datos de su tarjeta</h2>
+    <input type="text" id="numTarjeta" placeholder="Número de Tarjeta (16 dígitos)" class="p-3 border rounded-lg w-full mb-2" maxlength="16">
+    <div class="flex gap-2">
+        <input type="text" id="expTarjeta" placeholder="MM/AA" class="p-3 border rounded-lg w-1/2 mb-2" maxlength="5">
+        <input type="text" id="cvvTarjeta" placeholder="CVV" class="p-3 border rounded-lg w-1/2 mb-2" maxlength="3">
+    </div>
+    <input type="text" id="nombreTarjeta" placeholder="Nombre en la Tarjeta" class="p-3 border rounded-lg w-full mb-2">
+    <button type="button" id="confirmarPago" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition">Confirmar Pago</button>
+</div>
+
+<!-- Mensaje de confirmación de pago -->
+<div id="mensajePago" class="hidden p-4 mt-4 bg-green-100 border-l-4 border-green-500 text-green-700 rounded-lg">
+    <p>✅ Pago realizado con éxito. Ahora puedes enviar tu formulario.</p>
+</div>
+
+<script>
+    document.getElementById('pagoTarjeta').addEventListener('click', function() {
+        document.getElementById('formTarjeta').classList.remove('hidden');
+    });
+
+    document.getElementById('pagoPayPal').addEventListener('click', function() {
+        simularPago("PayPal");
+    });
+
+    document.getElementById('confirmarPago').addEventListener('click', function() {
+        let numTarjeta = document.getElementById('numTarjeta').value;
+        let expTarjeta = document.getElementById('expTarjeta').value;
+        let cvvTarjeta = document.getElementById('cvvTarjeta').value;
+        let nombreTarjeta = document.getElementById('nombreTarjeta').value;
+
+        // Validación básica
+        if (numTarjeta.length !== 16 || isNaN(numTarjeta)) {
+            alert("⚠️ Número de tarjeta inválido");
+            return;
+        }
+        if (!expTarjeta.match(/^(0[1-9]|1[0-2])\/\d{2}$/)) {
+            alert("⚠️ Fecha de expiración inválida (MM/AA)");
+            return;
+        }
+        if (cvvTarjeta.length !== 3 || isNaN(cvvTarjeta)) {
+            alert("⚠️ CVV inválido");
+            return;
+        }
+        if (nombreTarjeta.trim() === "") {
+            alert("⚠️ Nombre en la tarjeta requerido");
+            return;
+        }
+
+        // Simular procesamiento del pago
+        setTimeout(() => {
+            alert("✅ Pago con tarjeta realizado con éxito");
+            document.getElementById('mensajePago').classList.remove('hidden');
+            document.getElementById('enviar').classList.remove('hidden');
+        }, 1000);
+    });
+
+    function simularPago(metodo) {
+        setTimeout(() => {
+            alert(`✅ Pago exitoso con ${metodo}`);
+            document.getElementById('mensajePago').classList.remove('hidden');
+            document.getElementById('enviar').classList.remove('hidden');
+        }, 1000);
+    }
+</script>
+
+            
+
+            <!-- Resumen de Datos -->
+            <div id="resumen" class="hidden p-4 bg-gray-50 border rounded-lg my-4">
+                <h2 class="text-xl font-semibold mb-2">Resumen de Datos</h2>
+                <p id="datosResumen" class="text-gray-700"></p>
+            </div>
+
+            <button type="button" id="verDatos" class="w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition">Ver Datos</button>
+            <button type="submit" id="enviar" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition hidden">Enviar</button>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById('verDatos').addEventListener('click', function() {
+            let inputs = document.querySelectorAll('input, textarea');
+            let resumenTexto = "";
+
+            inputs.forEach(input => {
+                if (input.value.trim() !== "") {
+                    resumenTexto += `<strong>${input.placeholder || input.previousElementSibling?.innerText}:</strong> ${input.value} <br>`;
+                }
+            });
+
+            if (resumenTexto) {
+                document.getElementById('datosResumen').innerHTML = resumenTexto;
+                document.getElementById('resumen').classList.remove('hidden');
+                document.getElementById('enviar').classList.remove('hidden');
+            } else {
+                alert("Por favor, complete al menos un campo.");
+            }
+        });
+
+        document.getElementById('inscripcionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Formulario enviado con éxito!');
+            this.reset();
+            document.getElementById('resumen').classList.add('hidden');
+            document.getElementById('enviar').classList.add('hidden');
+        });
+    </script>
+
+<footer class="bg-black text-white py-6 text-center">
+    <div class="container mx-auto">
+        <p class="text-lg font-semibold">11 Norte 967, Viña del Mar</p>
+        <p class="text-sm"><span class="font-bold">Teléfonos:</span> 322881777 - 322638887 - 322694140</p>
+        <p class="text-sm text-blue-400">PAICABI@PAICABI.CL</p>
+        <p class="text-xs text-gray-500 mt-2">2025 - ONG DE DESARROLLO, CENTRO DE PROMOCIÓN Y APOYO A LA INFANCIA</p>
+    </div>
+</footer>
+
+</body>
+</html>
