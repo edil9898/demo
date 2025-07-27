@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan de Estudio - Diplomado Internacional</title>
- 
+
     <link rel="icon" type="image/png" href="./img/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <header class="bg-[#AACB0C] shadow-md py-4">
@@ -15,9 +25,9 @@
             <nav class="w-full md:w-auto mt-4 md:mt-0">
                 <ul class="flex flex-col md:flex-row md:space-x-6 text-center">
                     <li><a href="./index.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Inicio</a></li>
-                        <li><a href="./quien_somos.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Objetivos/Impactos</a></li>
-                        <li><a href="./plan_estudio.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Plan de estudio</a></li>
-                        <li><a href="./pagina3.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Inscripcion</a></li>
+                    <li><a href="./quien_somos.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Objetivos/Impactos</a></li>
+                    <li><a href="./plan_estudio.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Plan de estudio</a></li>
+                    <li><a href="./pagina3.html" class="text-lg font-semibold text-gray-700 hover:text-blue-500">Inscripción</a></li>
                 </ul>
             </nav>
             <img src="./img/PUCV_Escudo2016.svg.png" alt="Logo 2" class="h-24 md:h-32 mt-4 md:mt-0">
@@ -27,6 +37,7 @@
     <main class="container mx-auto p-6">
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-6 fade-in">Plan de Estudio del Diplomado Internacional</h1>
         <div id="plan-estudio" class="space-y-8"></div>
+        <div id="requisitos-certificado" class="mt-12"></div>
     </main>
 
     <footer class="bg-black text-white py-6">
@@ -46,28 +57,204 @@
     </footer>
 
     <script>
+        const requisitosCertificado = [
+            "Pago del 100% de los aranceles del Diplomado",
+            "80% de asistencia a clases sincrónicas",
+            "Tres tareas entregadas y aprobadas"
+        ];
+
         const planEstudio = [
-    { semana: 1, unidad: "Presentación del Diplomado Internacional", temas: ["Análisis integral de la violencia en América Latina", "El trabajo de ONG Paicabí en el abordaje de la violencia hacia NNAJ"], modulo: ["1. Módulo 1: Introducción al Diplomado Internacional"] },
-    { semana: 2, unidad: "El derecho a ser amado", temas: ["Aproximación a la intervención en PAS"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
-    { semana: 3, unidad: "Evaluación de las CSP-PAS", temas: ["Modelo Paicabí de Responsabilización Compartida (RC3D)"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
-    { semana: 4, unidad: "Evaluación de las CSP-PAS", temas: ["Responsabilización a nivel individual, familiar y contextual", "Resignificación de experiencias de vulneración antes y después de la PAS"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
-    { semana: 5, unidad: "Evaluación de las CSP-PAS", temas: ["Factores vulnerantes y resilientes de la PAS", "Evaluación y desarrollo de competencias parentales"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
-    { semana: 6, unidad: "Elaboración del diagnóstico diferencial de las CSP-PAS", temas: ["Desarrollo de hipótesis de trabajo y programa de intervención"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
-    { semana: 7, unidad: "Elaboración del diagnóstico diferencial de las CSP-PAS", temas: ["La entrevista con NNA"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
-    { semana: 8, unidad: "Elaboración del diagnóstico diferencial de las CSP-PAS", temas: ["La entrevista con NNA con necesidades especiales"], modulo: ["2. Módulo 2: Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"] },
-    { semana: 9, unidad: "Estrategias para la Intervención Psicosocial", temas: ["Reconocimiento a nivel individual, familiar y contextual"], modulo: ["3. Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"] },
-    { semana: 10, unidad: "Estrategias para la Intervención Psicosocial", temas: ["Responsabilización y resignificación de experiencias de vulneración"], modulo: ["3. Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"] },
-    { semana: 11, unidad: "Modelo de Responsabilización Compartida en Tres Dimensiones (RC3D)", temas: ["Configuraciones sistémicas para supervisión de casos"], modulo: ["4. Módulo 4: Modelo de responsabilización compartida en tres dimensiones (RC3D)"] },
-    { semana: 12, unidad: "Modelo de Responsabilización Compartida en Tres Dimensiones (RC3D)", temas: ["Escultura familiar para el análisis de casos"], modulo: ["4. Módulo 4: Modelo de responsabilización compartida en tres dimensiones (RC3D)"] },
-    { semana: 13, unidad: "Trabajo colaborativo como herramienta de cuidado", temas: ["Estrategias de autocuidado para equipos que trabajan con violencia"], modulo: ["4. Módulo 4: Modelo de responsabilización compartida en tres dimensiones (RC3D)"] },
-    { semana: 14, unidad: "Modelo de atención Fundación Opción", temas: ["Enfoque del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
-    { semana: 15, unidad: "Modelo de atención Fundación Opción", temas: ["Implementación del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
-    { semana: 16, unidad: "Modelo de atención Lucy Faithfull Foundation", temas: ["Enfoque y estrategias del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
-    { semana: 17, unidad: "Modelo de atención Lucy Faithfull Foundation", temas: ["Aplicaciones prácticas del modelo"], modulo: ["5. Módulo 5: Modelos Internacionales de Intervención en Prácticas Abusivas Sexuales"] },
-    { semana: 18, unidad: "Incidencia en Políticas Públicas", temas: ["Políticas públicas como instrumento del Estado"], modulo: ["6. Módulo 6: Estrategias para la incidencia en Políticas Públicas"] },
-    { semana: 19, unidad: "Incidencia en Políticas Públicas", temas: ["Evaluación de políticas públicas y su impacto"], modulo: ["6. Módulo 6: Estrategias para la incidencia en Políticas Públicas"] },
-    { semana: 20, unidad: "Clausura y cierre del diplomado", temas: ["Encuentro internacional presencial (autofinanciable)"], modulo: ["7. Clausura y cierre de la actividad Encuentro internacional presencial en un país de América Latina."] }
+    {
+        semana: 1,
+        unidad: "Evento inaugural y presentación del Diplomado",
+        temas: [
+            "Análisis integral de la violencia en América Latina",
+            "Trabajo de ONG Paicabí en violencia hacia NNAJ",
+            "Conversatorio inaugural: impactos y desafíos en modelos de intervención PAS"
+        ],
+        modulo: ["Módulo 1: Modelo PAICABI de responsabilización compartida en tres dimensiones (RC3D) para el abordaje de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 2,
+        unidad: "Fundamentos de la intervención y el Modelo RC3D",
+        temas: [
+            "Principios éticos y de derechos para la intervención en PAS",
+            "Evolución de modelos comprensivos",
+            "Introducción al Modelo RC3D"
+        ],
+        modulo: ["Módulo 1: Modelo PAICABI de responsabilización compartida en tres dimensiones (RC3D) para el abordaje de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 3,
+        unidad: "Evaluación especializada - Dimensión individual",
+        temas: [
+            "Instrumentos y técnicas para el diagnóstico individual",
+            "Historia de vida y experiencias de vulneración",
+            "Evaluación socioemocional, cognitiva y psicosexual"
+        ],
+        modulo: ["Módulo 2: Estrategias para una Estrategias para una Estrategias para una Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 4,
+        unidad: "Evaluación de la dimensión familiar-relacional",
+        temas: [
+            "Rol de la familia en la génesis y mantención de las PAS",
+            "Evaluación de competencias parentales (Escala E2P)",
+            "Análisis de dinámicas vinculares y patrones transgeneracionales",
+            "Factores precursores, precipitantes y mantenedores familiares"
+        ],
+        modulo: ["Módulo 2: Estrategias para una Estrategias para una Estrategias para una Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 5,
+        unidad: "Evaluación de la dimensión socio-contextual y síntesis",
+        temas: [
+            "Mapeo de redes institucionales y comunitarias",
+            "Factores contextuales de riesgo y protección",
+            "Resignificación de la agresión sexual desde enfoque multicausal"
+        ],
+        modulo: ["Módulo 2: Estrategias para una Estrategias para una Estrategias para una Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 6,
+        unidad: "Diagnóstico diferencial y entrevista especializada",
+        temas: [
+            "Distinción entre conductas saludables, problemáticas y abusivas",
+            "Primera entrevista para construir el 'puente de confianza'",
+            "Construcción de hipótesis integradas en 3 dimensiones"
+        ],
+        modulo: ["Módulo 2: Estrategias para una Estrategias para una Estrategias para una Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 7,
+        unidad: "Estándares de atención psicosocial a NNA",
+        temas: [
+            "Técnicas de entrevista con NNA desde enfoque de derechos"
+        ],
+        modulo: ["Módulo 2: Estrategias para una Estrategias para una Estrategias para una Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 8,
+        unidad: "Atención del trauma informado",
+        temas: [
+            "Modelo de atención al trauma: reconocer, revisar, responder, resistir"
+        ],
+        modulo: ["Módulo 2: Estrategias para una Estrategias para una Estrategias para una Estrategias para una evaluación integral de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 9,
+        unidad: "Reconocimiento, responsabilización y resignificación",
+        temas: [
+            "Negación y minimización",
+            "Narrativa del evento abusivo",
+            "Empatía y comprensión del daño causado",
+            "Resignificación de experiencias de vulneración"
+        ],
+        modulo: ["Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 10,
+        unidad: "Fortalecimiento familiar y planes de cuidado",
+        temas: [
+            "Intervención cuando la PAS es entre hermanos",
+            "Desarrollo de competencias parentales",
+            "Planes de seguridad individualizados",
+            "Reunificación familiar tras trauma relacional"
+        ],
+        modulo: ["Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 11,
+        unidad: "Técnicas sistémicas para análisis de casos",
+        temas: [
+            "Configuraciones sistémicas",
+            "Escultura familiar"
+        ],
+        modulo: ["Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 12,
+        unidad: "Cuidado del equipo de intervención",
+        temas: [
+            "Modelos de gestión del cuidado",
+            "Burnout y fatiga por compasión",
+            "Autocuidado y cuidado mutuo",
+            "Supervisión colaborativa y co-visión"
+        ],
+        modulo: ["Módulo 3: Estrategias para la Intervención Psicosocial de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 13,
+        unidad: "Modelos del Reino Unido (Parte I)",
+        temas: [
+            "Contexto político y evidencia en trabajo con PAS",
+            "Enfoques de evaluación con NNA en UK"
+        ],
+        modulo: ["Módulo 4: Modelos Internacionales de Prevención y Abordaje de Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 14,
+        unidad: "Modelos del Reino Unido (Parte II)",
+        temas: [
+            "Intervención con NNA en situaciones de abuso",
+            "Trabajo con poblaciones especiales (neurodiversidad, violencia digital, pandillas, etc.)"
+        ],
+        modulo: ["Módulo 4: Modelos Internacionales de Prevención y Abordaje de Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 15,
+        unidad: "Modelo Aurora AC - México (Parte I)",
+        temas: [
+            "Enfoque y estrategias del Modelo Aurora"
+        ],
+        modulo: ["Módulo 4: Modelos Internacionales de Prevención y Abordaje de Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 16,
+        unidad: "Modelo Aurora AC - México (Parte II)",
+        temas: [
+            "Aplicaciones prácticas con jóvenes en vulnerabilidad"
+        ],
+        modulo: ["Módulo 4: Modelos Internacionales de Prevención y Abordaje de Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 17,
+        unidad: "Modelo multigeneracional ante PAS",
+        temas: [
+            "Fundamentos y características del modelo",
+            "Instrumentos de evaluación familiar"
+        ],
+        modulo: ["Módulo 4: Modelos Internacionales de Prevención y Abordaje de Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 18,
+        unidad: "Aplicación del modelo multigeneracional",
+        temas: [
+            "Ejes y prácticas de intervención multigeneracional"
+        ],
+        modulo: ["Módulo 4: Modelos Internacionales de Prevención y Abordaje de Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 19,
+        unidad: "Incidencia y políticas públicas",
+        temas: [
+            "Políticas públicas como herramienta de intervención estatal",
+            "Estándares de evaluación en DDHH",
+            "Enfoque sistémico y multiactor para la inversión pública"
+        ],
+        modulo: ["Módulo 5: Las Políticas Públicas y Estrategias de Incidencia para la prevención y abordaje de las Prácticas Abusivas Sexuales"]
+    },
+    {
+        semana: 20,
+        unidad: "Clausura y encuentro internacional",
+        temas: [
+            "Encuentro presencial (autofinanciado)",
+            "Entrega de diplomado"
+        ],
+        modulo: ["Módulo 5: Las Políticas Públicas y Estrategias de Incidencia para la prevención y abordaje de las Prácticas Abusivas Sexuales"]
+    }
 ];
+
         const container = document.getElementById("plan-estudio");
         const modulosMap = {};
         planEstudio.forEach(semana => {
@@ -93,7 +280,7 @@
 
             const gridSemanas = document.createElement('div');
             gridSemanas.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8';
-            
+
             modulosMap[moduloNombre].forEach(({ semana, unidad, temas }) => {
                 const card = document.createElement("div");
                 card.className = "bg-white p-4 rounded-lg shadow-md fade-in";
@@ -106,9 +293,27 @@
                 `;
                 gridSemanas.appendChild(card);
             });
-            
+
             container.appendChild(gridSemanas);
         });
+
+        const reqContainer = document.getElementById("requisitos-certificado");
+
+        const tituloReq = document.createElement("h3");
+        tituloReq.className = "text-2xl font-bold text-gray-800 mb-4 fade-in";
+        tituloReq.textContent = "Requisitos para obtener el Diplomado";
+
+        const listaReq = document.createElement("ul");
+        listaReq.className = "list-disc list-inside bg-white p-6 rounded-lg shadow-md text-gray-700 fade-in";
+
+        requisitosCertificado.forEach(item => {
+            const li = document.createElement("li");
+            li.innerHTML = "✅ " + item;
+            listaReq.appendChild(li);
+        });
+
+        reqContainer.appendChild(tituloReq);
+        reqContainer.appendChild(listaReq);
     </script>
 </body>
 </html>
