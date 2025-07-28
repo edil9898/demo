@@ -58,7 +58,7 @@
 
         
 
-        <section class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in">
+        <!-- <section class="bg-white p-6 rounded-lg shadow-md mb-8 fade-in">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Invitados extranjeros</h2>
             <ul class="list-disc list-inside text-gray-700 space-y-2">
                 <li>
@@ -74,7 +74,7 @@
                     <strong>4ta Conferencia Temática Internacional con personas expertas invitadas:</strong> Modulo 5
                 </li>
             </ul>
-        </section>
+        </section> -->
 
         <div id="requisitos-certificado" class="mt-12"></div>
     </main>
@@ -95,15 +95,15 @@
         </div>
     </footer>
 
-    
     <script>
-        const requisitosCertificado = [
-            "Pago del 100% de los aranceles del Diplomado",
-            "80% de asistencia a clases sincrónicas",
-            "Tres tareas entregadas y aprobadas"
-        ];
 
-        const planEstudio = [
+    const requisitosCertificado = [
+        "Pago del 100% de los aranceles del Diplomado",
+        "80% de asistencia a clases sincrónicas",
+        "Tres tareas entregadas y aprobadas"
+    ];
+
+    const planEstudio = [
     {
         semana: 1,
         unidad: "Evento inaugural y presentación del Diplomado",
@@ -293,67 +293,100 @@
         ],
         modulo: ["Módulo 5: Las Políticas Públicas y Estrategias de Incidencia para la prevención y abordaje de las Prácticas Abusivas Sexuales"]
     }
+
 ];
 
-        const container = document.getElementById("plan-estudio");
-        const modulosMap = {};
-        planEstudio.forEach(semana => {
-            semana.modulo.forEach(moduloNombre => {
-                if (!modulosMap[moduloNombre]) {
-                    modulosMap[moduloNombre] = [];
-                }
-                modulosMap[moduloNombre].push(semana);
-            });
+    // Frases destacadas por módulo
+    const frasesModulo = {
+        1: "Conversatorio inaugural: Impactos y desafíos en modelos de intervención PAS (ya propuesto).",
+        2: "Innovando la Entrevista: estándares de evaluación en los periferia de entrevistas con en enfoque del trauma informado.",
+        3: "Aportes de la mentalización en la salud mental e intervención en maltrato y abuso sexual Infantil",
+        4: "Impactos de los modelos de atención de PAS en la Salud Mental de NNA.",
+        5: "El gran desafío de las Políticas Publicas para la protección infantil en el siglo XXI"
+    };
+
+    const container = document.getElementById("plan-estudio");
+    const modulosMap = {};
+
+    planEstudio.forEach(semana => {
+        semana.modulo.forEach(moduloNombre => {
+            if (!modulosMap[moduloNombre]) {
+                modulosMap[moduloNombre] = [];
+            }
+            modulosMap[moduloNombre].push(semana);
         });
+    });
 
-        const modulosOrdenados = Object.keys(modulosMap).sort((a, b) => {
-            const numA = parseInt(a.match(/\d+/)?.[0] || 0);
-            const numB = parseInt(b.match(/\d+/)?.[0] || 0);
-            return numA - numB;
-        });
+    const modulosOrdenados = Object.keys(modulosMap).sort((a, b) => {
+        const numA = parseInt(a.match(/\d+/)?.[0] || 0);
+        const numB = parseInt(b.match(/\d+/)?.[0] || 0);
+        return numA - numB;
+    });
 
-        modulosOrdenados.forEach(moduloNombre => {
-            const tituloModulo = document.createElement('h3');
-            tituloModulo.className = 'text-2xl font-bold text-gray-800 mb-4 fade-in';
-            tituloModulo.textContent = moduloNombre;
-            container.appendChild(tituloModulo);
 
-            const gridSemanas = document.createElement('div');
-            gridSemanas.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8';
+    modulosOrdenados.forEach(moduloNombre => {
+    const moduloNumero = parseInt(moduloNombre.match(/\d+/)?.[0] || 0);
 
-            modulosMap[moduloNombre].forEach(({ semana, unidad, temas }) => {
-                const card = document.createElement("div");
-                card.className = "bg-white p-4 rounded-lg shadow-md fade-in";
-                card.innerHTML = `
-                    <h2 class="text-xl font-bold text-gray-800">Semana ${semana}</h2>
-                    <p class="text-gray-700"><strong>Unidad:</strong> ${unidad}</p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
-                        ${temas.map(tema => `<li>${tema}</li>`).join("")}
-                    </ul>
-                `;
-                gridSemanas.appendChild(card);
-            });
+    // Título del módulo
+    const tituloModulo = document.createElement('h3');
+    tituloModulo.className = 'text-2xl font-bold text-gray-800 mb-2 fade-in';
+    tituloModulo.textContent = moduloNombre;
+    container.appendChild(tituloModulo);
 
-            container.appendChild(gridSemanas);
-        });
+    // Recuadro con frase destacada (justo debajo del título)
+    if (frasesModulo[moduloNumero]) {
+        const fraseBox = document.createElement('div');
+        fraseBox.className = 'bg-blue-50 border-l-4 border-blue-500 p-4 mb-4 rounded-lg shadow-sm fade-in';
 
-        const reqContainer = document.getElementById("requisitos-certificado");
+        fraseBox.innerHTML = `
+            <h4 class="text-lg font-semibold text-blue-700 mb-1">Inicio de módulo</h4>
+            <p class="text-gray-700 italic">"${frasesModulo[moduloNumero]}"</p>
+        `;
+        container.appendChild(fraseBox);
+    }
 
-        const tituloReq = document.createElement("h3");
-        tituloReq.className = "text-2xl font-bold text-gray-800 mb-4 fade-in";
-        tituloReq.textContent = "Requisitos para obtener el Diplomado";
+    // Contenedor de tarjetas semanales
+    const gridSemanas = document.createElement('div');
+    gridSemanas.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12';
 
-        const listaReq = document.createElement("ul");
-        listaReq.className = "list-disc list-inside bg-white p-6 rounded-lg shadow-md text-gray-700 fade-in";
+    modulosMap[moduloNombre].forEach(({ semana, unidad, temas }) => {
+        const card = document.createElement("div");
+        card.className = "bg-white p-4 rounded-lg shadow-md fade-in";
+        card.innerHTML = `
+            <h2 class="text-xl font-bold text-gray-800">Semana ${semana}</h2>
+            <p class="text-gray-700"><strong>Unidad:</strong> ${unidad}</p>
+            <ul class="list-disc list-inside text-gray-600 mt-2">
+                ${temas.map(tema => `<li>${tema}</li>`).join("")}
+            </ul>
+        `;
+        gridSemanas.appendChild(card);
+    });
 
-        requisitosCertificado.forEach(item => {
-            const li = document.createElement("li");
-            li.innerHTML = "✅ " + item;
-            listaReq.appendChild(li);
-        });
+    container.appendChild(gridSemanas);
+});
 
-        reqContainer.appendChild(tituloReq);
-        reqContainer.appendChild(listaReq);
-    </script>
+
+
+
+    const reqContainer = document.getElementById("requisitos-certificado");
+
+    const tituloReq = document.createElement("h3");
+    tituloReq.className = "text-2xl font-bold text-gray-800 mb-4 fade-in";
+    tituloReq.textContent = "Requisitos para obtener el Diplomado";
+
+    const listaReq = document.createElement("ul");
+    listaReq.className = "list-disc list-inside bg-white p-6 rounded-lg shadow-md text-gray-700 fade-in";
+
+    requisitosCertificado.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = "✅ " + item;
+        listaReq.appendChild(li);
+    });
+
+    reqContainer.appendChild(tituloReq);
+    reqContainer.appendChild(listaReq);
+</script>
+
+
 </body>
 </html>
